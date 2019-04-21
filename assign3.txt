@@ -1,0 +1,100 @@
+Assign3: Due 11:59PM March 29th
+
+In this assignment we will use the TDD approach to create a diagraming application. The application will have a GUI, but we will keep the logic test driven and separated from the GUI.
+
+1. The application will present to the user a number of shapes like Circle,
+Square, Rectangle, etc. 
+
+2. The user can drag and drop shapes on to a diagram from a panel of shapes.
+
+3. The user can move a shape that has been already placed on a diagram.
+
+4. The user can delete a shape from the diagram by selecting it with a delete tool.
+
+5. The user can select a number of shapes and group them.
+
+6. If a group is moved, the shapes in it move.
+
+7. If a group is deleted, everything in it is deleted.
+
+8. A group may contain other groups.
+
+9. A user may ungroup a group.
+
+10. Shapes have properties (like center and radius for a circle).
+
+11. The user can save a diagram and can open saved diagrams.
+
+We will write the app so that if a user decides to add another shape (say a 
+triangle), there will not be any code change to the application. They should 
+be able to introduce the code for the new shapes quite easily.
+
+Remember to bring forward the good practices we have learned so far. You know 
+the drill about early start, frequent reviews, and responding to feedbacks quickly.
+
+Let's focus on the following after the coding is completed:
+
+1. What design principles did we use in this assignment?
+
+In this assignment, we did our best to incorporate all the good design principles we have discussed thus far. 
+The 3 main ones that come to mind when rethinking about this assignment were DRY(Don't Repeat Yourself), SRP(Single
+Responsibility Principle), and, most notably, OCP(Open-closed Principle). OCP was at the heart of this assignment,
+as the main idea behind it was to keep the application extensible. We wrote the app in such a way that if a future
+developer were to add another shape, no existing code would need to be changed. It would be relatively easy for 
+one to add a shape class and have it work seamlessly with the application's logic. With this in mind, this assignment
+represents OCP fairly well, and the way we have built application shows that as well. 
+
+2. What were some of the challenges you ran into when creating the program?
+
+Honoring the Open-closed principle was probably the most recurring challenge we've faced, as keeping each shape class
+independent and not have to rely on some other abstraction was a hurdle we ran into frequently. However, the biggest
+and most difficult challenge we faced during the creation of this program was the incorporation of the GUI. 
+Having the GUI and the program logic be connected so that it would be a one-to-one relationship was something we 
+did not expect to be so complex, especially when it came to working with grouped shapes. This is attributed to 
+our unfamiliarity with Tkinter (Python's GUI) and event-driven programming as a whole. In the end, it ended up getting the 
+better of us because tkinters canvas' (the primary widget we used for the diagramming program) implementation wasn't one to 
+one with the diagram logic. This especially became apparent when it all revolved around grouping. 
+
+3. Were there any surprises or unexpected learnings?
+
+The biggest thing we learned from this was ensuring that we maximize our time as efficiently as possible when it comes to 
+programming. Missing out of practically 2 days worth of reviews set us back on valuable time when we could have been learning 
+the tkinter module; perhaps allowing us to properly complete the task at hand. 
+
+As previously mentioned, now have a better understanding of event-driven programming. We did not anticipate this
+very well and had to learn alot along the way, but our knowledge of GUIs and event-driven programming became 
+all the better for it.
+
+Total [100]: 86
+
+Program builds and runs [20]:
+Able to place circle, rectangle, square, group, move, ungroup, delete, save, load [10]: -2
+
+Moving group does not work properly. Also, ungrouping has issues.
+
+All tests pass [10]:
+Code coverage [10]:
+Test quality [10]:
+
+Design quality [10]: -1
+
+radon cc src -a -nb
+src/diagram_gui.py
+    M 86:2 DiagramGUI.get_enclosed_items - B
+
+1 blocks (classes, functions, methods) analyzed.
+Average complexity: B (6.0)
+
+Please do not remove the code metric tool from the build file.
+
+Code quality [10]: -1
+Feedback notes still left in code.
+
+Design supports adding new shapes without code change [10]: -10
+
+In diagram_gui.py:
+self.draw_shapes = [DrawCircle(self.canvas, self.diagram), DrawRectangle(self.canvas, self.diagram), DrawSquare(self.canvas, self.diagram)]
+
+Code violates OCP. Need to dynamically load files related to drawing shapes.
+
+Response to questions [10]:
